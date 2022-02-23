@@ -1,0 +1,27 @@
+1. install samba
+
+2. ADD USER & GROUP
+
+3. MKDIR dirs -> CHOWN
+
+4. build startup -> COPY -> CHOWN ROOT:ROOT -> CHMOD a=xs
+
+5. COPY Templates -> CHOWN ROOT:ROOT -> CHMOD a=r
+
+6. COPY ENTRYPOINT
+
+############################################
+
+Startup todo
+
+1. change samba user + workdirs
+
+2. read smb.users -> create/update users -> remove password
+ENV SMB_USERS_GUID 1000
+ENV SMB_USER_REMOVE_PASSWORD 1
+ENV SMB_USERS_UID_START 2000
+ENV SMB_USERS_UID_END 3000
+
+
+
+
