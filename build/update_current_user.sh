@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#root check
 if [ $(id -u) != "0" ]; then
     echo "Not Running as root"
     exit
@@ -8,34 +9,24 @@ fi
 USER_UID=$1;
 USER_GID=$2;
 
+#checking parameters
 if [ -z "$USER_UID" ] || [ -z "$USER_GID" ]; then
     echo "You need to pass 2 arguments"
     echo "usage: update_current_user UID GUI"
-    echo "UID [1000..1999]"
-    echo "GID [1000.1999]"
     exit
 fi
 
+#Checking UID format
 if [[ ! "$USER_UID" =~ ^[0-9]+$ ]]; then
     echo "UID is not a number"
     exit
-else
-    if [ "$USER_UID" -gt 1999 ] && [ "$USER_UID" -lt 3000 ]; then
-        echo "UID is in blocked range"
-        exit
-    fi
 fi
 
+#Checking GID format
 if [[ ! "$USER_GID" =~ ^[0-9]+$ ]]; then
     echo "GID is not a number"
     exit
-else
-    if [ "$USER_GID" -gt 1999 ] && [ "$USER_GID" -lt 3000 ]; then
-        echo "GID is in blocked range"
-        exit
-    fi
 fi
-
 
 # Samba has the right uid?
 if [ "$USER_UID" != "$(id -u samba)" ]; then

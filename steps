@@ -18,10 +18,22 @@ Startup todo
 
 2. read smb.users -> create/update users -> remove password
 ENV SMB_USERS_GUID 1000
-ENV SMB_USER_REMOVE_PASSWORD 1
-ENV SMB_USERS_UID_START 2000
-ENV SMB_USERS_UID_END 3000
+ENV SMB_USERS_REMOVE_PASSWORD 1
 
+
+
+
+
+server role = standalone server
+log file = /logs/log.%m
+max log size = 50
+
+encrypt passwords = yes
+server min protocol = SMB3
+server max protocol = SMB3
+client min protocol = SMB2
+client max protocol = SMB3
+smb encrypt = required
 
 
 

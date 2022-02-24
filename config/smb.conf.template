@@ -1,0 +1,70 @@
+# This is a modified Samba configuration file to use with the 
+# docker-container. You should read the smb.conf(5) manual page 
+# in order to understand the options listed here. Samba has a 
+# huge number of configurable options (perhaps too many!) most 
+# of which are not shown in this example. Some options are
+# already set in the internal smb.conf file. You can overwrite
+# them but it might cause instability or crashes.
+#
+# Any line which starts with a ; (semi-colon) or a # (hash)
+# is a comment and is ignored. In this example # is used for
+# commentry and a ; for parts of the config file that you may
+# wish to enable
+#
+# NOTE: Whenever you modify this file you should restat the 
+# docker-container to apply the changes and to check for possible 
+# basic syntactic errors.
+#
+#======================= Global Settings =====================================
+
+[global]
+
+# workgroup = NT-Domain-Name or Workgroup-Name, eg: MIDEARTH
+    workgroup = WORKGROUP
+
+# server string is the equivalent of the NT Description field
+   server string = Samba Server
+
+# Uncomment this if you want a guest account, you must add this to /config/smb.users
+# otherwise the user "nobody" is used
+;  guest account = pcguest
+
+# This option controls how unsuccessful authentication attempts are mapped
+# to anonymous connections
+   map to guest = bad user
+
+# Maximum number of usershare. 0 means that usershare is disabled.
+;   usershare max shares = 100
+
+# Allow users who've been granted usershare privileges to create
+# public shares, not just authenticated ones
+   usershare allow guests = no
+
+#TODO
+   security = user
+
+#TODO
+   access based share enum = Yes
+
+#TODO
+   create mask = 0770
+   directory mask = 0770
+   force group = nas-users
+
+#============================ Share Definitions ==============================
+
+
+[Example]
+comment = Example Share
+path = /data/
+writeable = yes
+browsable = yes
+;read only = no
+public = no
+guest ok = no
+valid users = user
+
+#additional options
+;only guest = yes
+;read only = yes
+;create mask = 0765

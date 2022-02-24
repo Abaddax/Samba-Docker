@@ -32,12 +32,12 @@ int main(int argc, char* argv[])
         strcat(cmd, " ");
         strcat(cmd, argv[2]);
         //Run
-        printf("%s\n", cmd);
+        printf("Updating user");
         system(cmd);
         free(cmd);
     }
-	
-	//Update samba workdirs
+
+    //Update samba workdirs
     {
         int size = 1 + strlen(bash) + strlen(update_samba_dirs);
         char* cmd = malloc(size);
@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
         strcat(cmd, bash);
         strcat(cmd, update_samba_dirs);
         //Run
-        printf("%s\n", cmd);
+        printf("Updating samba workdir access");
         system(cmd);
         free(cmd);
     }
@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
         strcat(cmd, bash);
         strcat(cmd, update_samba_users);
         //Run
-        printf("%s\n", cmd);
+        printf("Updating samba users");
         system(cmd);
         free(cmd);
     }
