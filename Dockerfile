@@ -64,7 +64,7 @@ COPY --from=build-env --chown=root:root /build/startup_routine /startup_routine
 COPY --chown=root:root build/update_current_user.sh /etc/samba/custom/update_current_user.sh
 COPY --chown=root:root build/update_samba_dirs.sh /etc/samba/custom/update_samba_dirs.sh
 COPY --chown=root:root build/update_samba_users.sh /etc/samba/custom/update_samba_users.sh
-RUN chmod a=xs /etc/samba/custom/startup_routine && \
+RUN chmod a=xs startup_routine && \
     chmod 400 /etc/samba/custom/update_current_user.sh && \
     chmod 400 /etc/samba/custom/update_samba_dirs.sh && \
     chmod 400 /etc/samba/custom/update_samba_users.sh
