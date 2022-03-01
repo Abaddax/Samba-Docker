@@ -8,4 +8,4 @@
 #    The password in only needed for inital user setup
 #    and can be removed after first start 
 
-user:2000:2000:password
+#username:uid:gid:password
