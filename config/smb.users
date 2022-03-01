@@ -6,6 +6,6 @@
 #    List all samba-share users (used in smb.conf)
 #    syntax: name:uid:gid:samba-password
 #    The password in only needed for inital user setup
-#    and can be removed after first start 
+#    and can will be removed after first start (default) 
 
 #username:uid:gid:password
