@@ -48,7 +48,5 @@ The `/config` volume contains two files `smb.conf` and `smb.users`.
                 - ./data:/data
                 - ./config:/config
                 - ./logs:/logs
-                - /etc/timezone:/etc/timezone:ro
-                - /etc/localtime:/etc/localtime:ro
             ports:
-                - "4450:445"
+                - "445:4455"
